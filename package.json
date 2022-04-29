@@ -1,0 +1,23 @@
+{
+  "name": "hashup-social-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create": "claudia create --region eu-west-1 --api-module hashupsocialbot --configure-telegram-bot --profile hashup",
+    "update": "claudia update --cache-api-config apiConfig --profile hashup",
+    "set-webhook": "curl -X \"POST\" \"https://api.telegram.org/bot<BOT_TOKEN>/setWebhook\" -d '{\"url\": \"https://sfpnjstre7.execute-api.eu-west-1.amazonaws.com/latest/telegram\"}' -H 'Content-Type: application/json; charset=utf-8'",
+    "remove-webhook": "curl -X \"POST\" \"https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?remove\"",
+    "get-webhook": "curl -X \"GET\" \"https://api.telegram.org/bot<BOT_TOKEN>/getWebhookInfo\""
+  },
+  "author": "HashUp.IT",
+  "license": "MIT",
+  "devDependencies": {
+    "claudia": "^5.14.1",
+    "eslint": "^8.14.0",
+    "eslint-config-defaults": "^9.0.0"
+  },
+  "dependencies": {
+    "claudia-bot-builder": "^4.5.0"
+  }
+}
